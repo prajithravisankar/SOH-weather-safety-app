@@ -79,3 +79,20 @@ Date: June 29, 2025, 3:11 AM IST Performed By: Prajith Ravisankar
 
 Date: June 29, 2025, 3:30 AM IST Performed By: Prajith Ravisankar
 ---
+### Sub-todo 3.2.1: Install Leaflet.js
+- Installed leaflet and react-leaflet, and imported leaflet CSS to ensure maps display correctly.
+
+Date: June 29, 2025, 3:37 AM IST Performed By: Prajith Ravisankar
+---
+### Sub-todo 3.2.2: Create MapView component
+- Added MapView with React-Leaflet, showing a map and marker for San Francisco.
+
+Date: June 29, 2025, 3:48 AM IST Performed By: Prajith Ravisankar
+---
+### Sub-todo 3.2.3: Add zoom controls to map
+- Integrated React-Leaflet's ZoomControl component.
+- Placed controls at the top-right of the map for better UX.
+- Disabled default zoomControl on MapContainer to avoid duplicates.
+- Verified functionality in browser.
+
+Date: June 29, 2025, 3:57 AM IST Performed By: Prajith Ravisankar

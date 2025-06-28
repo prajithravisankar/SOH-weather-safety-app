@@ -125,13 +125,12 @@ weather-safety-app/
 
 ### Main Todo 3.2: Map Initialization
 
-- [ ]  Sub-todo 3.2.1: Install Leaflet.js
-    - [ ]  Run `npm install leaflet react-leaflet`
-- [ ]  Sub-todo 3.2.2: Create `MapView` component
-    - [ ]  Import `MapContainer`, `TileLayer`, and `Marker` from `react-leaflet`
-    - [ ]  Render map with default center (e.g., San Francisco coordinates)
-- [ ]  Sub-todo 3.2.3: Add zoom controls
-    - [ ]  Use `ZoomControl` from `react-leaflet`
+- [x]  Sub-todo 3.2.1: Install Leaflet.js
+    - [x]  Installed leaflet and react-leaflet, and imported leaflet CSS for map rendering
+- [x]  Sub-todo 3.2.2: Create `MapView` component
+    - [x]  Built MapView with React-Leaflet, rendering a map centered on San Francisco with a marker and popup
+- [x]  Sub-todo 3.2.3: Add zoom controls
+    - [x]  Added zoom controls to the map using React-Leaflet's ZoomControl (top-right).
 
 ### Main Todo 3.3: Weather Overlay
 
