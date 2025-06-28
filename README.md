@@ -35,12 +35,12 @@ weather-safety-app/
 
 ### Main Todo 1.1: GitHub Setup
 
-- [ ]  Sub-todo 1.1.1: Create GitHub repository
-    - [ ]  Name: `weather-safety-app`
-    - [ ]  Initialize with `README.md`, `.gitignore` (Node.js + React templates), and `MIT License`
-- [ ]  Sub-todo 1.1.2: Create branches
-    - [ ]  `main` (protected branch, final code only)
-    - [ ]  `dev` (shared development branch)
+- [x]  Sub-todo 1.1.1: Create GitHub repository
+    - [x]  Name: `weather-safety-app`
+    - [x]  Initialize with `README.md`, `.gitignore` (Node.js + React templates), and `MIT License`
+- [x]  Sub-todo 1.1.2: Create branches
+    - [x]  `main` (protected branch, final code only)
+    - [x]  `dev` (shared development branch)
 
 ### Main Todo 1.2: Tech Stack Finalization
 
