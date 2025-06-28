@@ -44,3 +44,13 @@ Date: June 28, 2025, 8:55 PM IST Performed By: Prajith Ravisankar
 
 Date: June 28, 2025, 8:58 PM IST Performed By: Prajith Ravisankar
 ---
+### Sub-todo 2.3.1: Create /api/locations routes
+- Created `backend/routes/locations.js` with GET, POST, DELETE endpoints for static location management using mock data.
+
+Date: June 28, 2025, 9:15 PM IST Performed By: Prajith Ravisankar
+---
+### Sub-todo 2.3.2: Test routes with Postman
+- Verified GET, POST, and DELETE for /api/locations work as expected on port 5050.
+
+Date: June 28, 2025, 9:25 PM IST Performed By: Prajith Ravisankar
+---

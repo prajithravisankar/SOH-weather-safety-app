@@ -94,14 +94,11 @@ weather-safety-app/
 
 ### Main Todo 2.3: Location Management API
 
-- [ ]  Sub-todo 2.3.1: Create `/api/locations` routes
-    - [ ]  File: `backend/routes/locations.js`
-    - [ ]  Endpoints:
-        - `GET /api/locations` → return mock data (e.g., `[{ name: "Home", lat: 37.7749, lon: -122.4194 }]`)
-        - `POST /api/locations` → add new location to mock data
-        - `DELETE /api/locations/:id` → remove location
-- [ ]  Sub-todo 2.3.2: Test routes with Postman
-    - [ ]  Verify `GET`, `POST`, and `DELETE` work
+- [x]  Sub-todo 2.3.1: Create `/api/locations` routes
+    - [x]  File: `backend/routes/locations.js`
+    - [x]  Endpoints: `GET`, `POST`, `DELETE` for static location management (mock data)
+- [x]  Sub-todo 2.3.2: Test routes with Postman
+    - [x]  Verified GET, POST, and DELETE for /api/locations work as expected on port 5050
 
 ### Main Todo 2.4: Disaster Data Proxy
 
