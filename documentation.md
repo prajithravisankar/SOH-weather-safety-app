@@ -96,3 +96,12 @@ Date: June 29, 2025, 3:48 AM IST Performed By: Prajith Ravisankar
 - Verified functionality in browser.
 
 Date: June 29, 2025, 3:57 AM IST Performed By: Prajith Ravisankar
+---
+### Weather Overlay MVP Progress
+- Added OpenWeatherMap tile overlay to map (tested: temp_new, wind_new, clouds_new).
+- Noted that some layers (e.g., clouds_new) are not visually prominent or may not display as expected.
+- Further tuning or alternative layer selection may be required for best UX.
+
+Date: June 29, 4:38 PM 2025, Performed By: Prajith Ravisankar
+---
+
