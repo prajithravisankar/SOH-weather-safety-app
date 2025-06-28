@@ -86,11 +86,11 @@ weather-safety-app/
 
 ### Main Todo 2.2: Mock Auth Routes
 
-- [ ]  Sub-todo 2.2.1: Create `/api/auth` routes
-    - [ ]  File: `backend/routes/auth.js`
-    - [ ]  Endpoint: `POST /api/auth/login` → returns mock user ID (e.g., `{ userId: 1 }`)
-- [ ]  Sub-todo 2.2.2: Register routes in `server.js`
-    - [ ]  Import `auth.js` and use `app.use('/api/auth', authRoutes)`
+- [x]  Sub-todo 2.2.1: Create `/api/auth` routes
+    - [x]  File: `backend/routes/auth.js`
+    - [x]  Endpoint: `POST /api/auth/login` → returns mock user ID (e.g., `{ userId: 1 }`)
+- [x]  Sub-todo 2.2.2: Register routes in `server.js`
+    - [x]  Imported `auth.js` and registered with `app.use('/api/auth', authRoutes)`
 
 ### Main Todo 2.3: Location Management API
 

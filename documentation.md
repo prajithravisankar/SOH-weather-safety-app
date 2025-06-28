@@ -34,3 +34,13 @@ Date: June 28, 2025, 8:41 PM IST Performed By: Prajith Ravisankar
 
 Date: June 28, 2025, 8:45 PM IST Performed By: Prajith Ravisankar
 ---
+### Sub-todo 2.2.1: Create /api/auth routes
+- Created `backend/routes/auth.js` with POST /api/auth/login returning mock user ID for MVP authentication.
+
+Date: June 28, 2025, 8:55 PM IST Performed By: Prajith Ravisankar
+---
+### Sub-todo 2.2.2: Register routes in server.js
+- Imported `auth.js` and registered with `app.use('/api/auth', authRoutes)` in Express app.
+
+Date: June 28, 2025, 8:58 PM IST Performed By: Prajith Ravisankar
+---
