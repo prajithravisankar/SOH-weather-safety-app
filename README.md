@@ -57,12 +57,14 @@ weather-safety-app/
 
 ### Main Todo 1.3: MVP Scope Finalization
 
-- [ ]  Sub-todo 1.3.1: Prioritize core features
-    - [ ]  Static location management (add/edit/delete)
-    - [ ]  Weather radar overlay on map
-    - [ ]  Mobile-friendly UI
+- [x]  Sub-todo 1.3.1: Prioritize core features
+    - [x]  Static location management (add/edit/delete)
+    - [x]  Weather radar overlay on map
+    - [x]  Mobile-friendly UI
+    - [x]  API fallback for resilience
+    - [x]  Simple, stress-free UI
 - [ ]  Sub-todo 1.3.2: Document scope in README
-    - [ ]  List APIs used, setup instructions, and MVP limitations
+    - [ ]  still pending decision...
 
 ---
 

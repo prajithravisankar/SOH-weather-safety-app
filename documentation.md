@@ -13,3 +13,9 @@ Date: June 28, 2025 Performed By: Prajith Ravisankar
 
 Date: June 28, 2025, 6:45 PM IST Performed By: Prajith Ravisankar
 ---
+### Main Todo 1.3: MVP Scope Finalization
+- Core features: static location management, map overlays, mobile-friendly UI, API fallback, simple UX
+- Documentation of scope in README: still pending decision...
+
+Date: June 28, 2025, 6:50 PM IST Performed By: Prajith Ravisankar
+---
