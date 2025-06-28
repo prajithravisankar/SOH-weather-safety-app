@@ -19,3 +19,18 @@ Date: June 28, 2025, 6:45 PM IST Performed By: Prajith Ravisankar
 
 Date: June 28, 2025, 6:50 PM IST Performed By: Prajith Ravisankar
 ---
+### Sub-todo 2.1.1: Initialize backend
+- Created `backend/` folder, initialized npm, installed express/cors/dotenv, and added .gitignore for node_modules and .env
+
+Date: June 28, 2025, 8:35 PM IST Performed By: Prajith Ravisankar
+---
+### Sub-todo 2.1.2: Create server.js
+- Set up Express server with ES modules, dotenv, CORS, and JSON middleware. Added root route for health check.
+
+Date: June 28, 2025, 8:41 PM IST Performed By: Prajith Ravisankar
+---
+### Sub-todo 2.1.3: Test server
+- Ran server and confirmed 'Server running!' message in browser/terminal.
+
+Date: June 28, 2025, 8:45 PM IST Performed By: Prajith Ravisankar
+---

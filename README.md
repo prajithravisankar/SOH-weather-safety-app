@@ -61,7 +61,7 @@ weather-safety-app/
     - [x]  Static location management (add/edit/delete)
     - [x]  Weather radar overlay on map
     - [x]  Mobile-friendly UI
-    - [x]  API fallback for resilience
+    - [x]  API fallback for resilience (use mock data if API fails)
     - [x]  Simple, stress-free UI
 - [ ]  Sub-todo 1.3.2: Document scope in README
     - [ ]  still pending decision...
@@ -74,14 +74,15 @@ weather-safety-app/
 
 ### Main Todo 2.1: Server Setup
 
-- [ ]  Sub-todo 2.1.1: Initialize backend
-    - [ ]  Create `backend/` folder
-    - [ ]  Run `npm init -y` and install dependencies: `express`, `cors`, `dotenv`
-- [ ]  Sub-todo 2.1.2: Create `server.js`
-    - [ ]  Set up Express server on port 5000
-    - [ ]  Add middleware: `app.use(cors())`, `app.use(express.json())`
-- [ ]  Sub-todo 2.1.3: Test server
-    - [ ]  Run `node server.js` and verify "Server running on port 5000"
+- [x]  Sub-todo 2.1.1: Initialize backend
+    - [x]  Create `backend/` folder
+    - [x]  Run `npm init -y` and install dependencies: `express`, `cors`, `dotenv`
+    - [x]  Add `.gitignore` for `node_modules/` and `.env`
+- [x]  Sub-todo 2.1.2: Create `server.js`
+    - [x]  Set up Express server with ES modules, dotenv, CORS, and JSON middleware
+    - [x]  Added root route for server health check
+- [x]  Sub-todo 2.1.3: Test server
+    - [x]  Ran server and confirmed 'Server running!' message in browser/terminal
 
 ### Main Todo 2.2: Mock Auth Routes
 
@@ -108,8 +109,10 @@ weather-safety-app/
     - [ ]  File: `backend/routes/disasters.js`
     - [ ]  Endpoint: `GET /api/disasters` → fetch data from OpenWeatherMap API (step 3.2.1)
 - [ ]  Sub-todo 2.4.2: Add API key management
-    - [ ]  Create `.env` file with `OPENWEATHERMAP_API_KEY`
+    - [ ]  Create `.env` file with `OPENWEATHERMAP_API_KEY` or Ambee key
     - [ ]  Use `dotenv` to load keys in `server.js`
+- [ ]  Sub-todo 2.4.3: Implement mock data fallback
+    - [ ]  If API call fails, return data from `mock-data/disasters.json` to frontend
 
 ---
 
