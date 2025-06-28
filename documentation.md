@@ -69,3 +69,13 @@ Date: June 29, 2025, 2:51 AM IST Performed By: Prajith Ravisankar
 
 Date: June 29, 2025, 3:00 AM IST Performed By: Prajith Ravisankar
 ---
+### Sub-todo 3.1.1: Initialize React app
+- Set up frontend with Vite, React, and Tailwind CSS. Verified Tailwind utility classes work in the app.
+
+Date: June 29, 2025, 3:11 AM IST Performed By: Prajith Ravisankar
+---
+### Sub-todo 3.1.2: Organize file structure
+- Set up folders for components, services, and utils in frontend. Added placeholder files for future features.
+
+Date: June 29, 2025, 3:30 AM IST Performed By: Prajith Ravisankar
+---

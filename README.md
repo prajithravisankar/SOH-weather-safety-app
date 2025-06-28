@@ -118,11 +118,10 @@ weather-safety-app/
 
 ### Main Todo 3.1: Frontend Setup
 
-- [ ]  Sub-todo 3.1.1: Initialize React app
-    - [ ]  Run `create-react-app frontend/`
-    - [ ]  Install dependencies: `axios`, `leaflet`, `react-leaflet` (or `@react-google-maps/api` for Google Maps)
-- [ ]  Sub-todo 3.1.2: Organize file structure
-    - [ ]  Create folders: `components/`, `utils/`, `services/`
+- [x]  Sub-todo 3.1.1: Initialize React app
+    - [x]  Created frontend with Vite + React, installed axios, leaflet, react-leaflet, tailwindcss, postcss, autoprefixer, and set up Tailwind CSS integration
+- [x]  Sub-todo 3.1.2: Organize file structure
+    - [x]  Created `components/`, `services/`, and `utils/` folders in frontend/src, with placeholder files for planned features
 
 ### Main Todo 3.2: Map Initialization
 
