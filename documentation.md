@@ -6,3 +6,10 @@ Date: June 28, 2025 Performed By: Prajith Ravisankar
 
 Date: June 28, 2025 Performed By: Prajith Ravisankar
 ---
+### Main Todo 1.2: Tech Stack Finalization
+- Frontend: React (Vite), React Leaflet, Tailwind CSS
+- Backend: Node.js, Express, JSON/mock data for MVP
+- Weather/disaster APIs: still pending decision...
+
+Date: June 28, 2025, 6:45 PM IST Performed By: Prajith Ravisankar
+---

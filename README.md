@@ -44,18 +44,16 @@ weather-safety-app/
 
 ### Main Todo 1.2: Tech Stack Finalization
 
-- [ ]  Sub-todo 1.2.1: Frontend stack
-    - [ ]  Framework: React (with `create-react-app`)
-    - [ ]  Map library: Leaflet.js (free, lightweight) or Google Maps API (if easier for you)
-    - [ ]  UI styling: CSS Flexbox/Grid (mobile-first)
-- [ ]  Sub-todo 1.2.2: Backend stack
-    - [ ]  Runtime: Node.js + Express
-    - [ ]  API routing: RESTful endpoints
-    - [ ]  No database (use mock data/localStorage for MVP)
+- [x]  Sub-todo 1.2.1: Frontend stack
+    - [x]  Framework: React (with Vite)
+    - [x]  Map library: React Leaflet (Leaflet.js)
+    - [x]  UI styling: Tailwind CSS (mobile-first)
+- [x]  Sub-todo 1.2.2: Backend stack
+    - [x]  Runtime: Node.js + Express
+    - [x]  API routing: RESTful endpoints
+    - [x]  No database (use JSON/mock data for MVP)
 - [ ]  Sub-todo 1.2.3: Weather/disaster APIs
-    - [ ]  Primary: OpenWeatherMap (radar/wind data)
-    - [ ]  Secondary: USGS (earthquake data)
-    - [ ]  Tertiary: AirNow (air quality/unrest data)
+    - [ ]  still pending decision...
 
 ### Main Todo 1.3: MVP Scope Finalization
 
