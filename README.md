@@ -102,14 +102,13 @@ weather-safety-app/
 
 ### Main Todo 2.4: Disaster Data Proxy
 
-- [ ]  Sub-todo 2.4.1: Create `/api/disasters` route
-    - [ ]  File: `backend/routes/disasters.js`
-    - [ ]  Endpoint: `GET /api/disasters` → fetch data from OpenWeatherMap API (step 3.2.1)
-- [ ]  Sub-todo 2.4.2: Add API key management
-    - [ ]  Create `.env` file with `OPENWEATHERMAP_API_KEY` or Ambee key
-    - [ ]  Use `dotenv` to load keys in `server.js`
-- [ ]  Sub-todo 2.4.3: Implement mock data fallback
-    - [ ]  If API call fails, return data from `mock-data/disasters.json` to frontend
+- [x]  Sub-todo 2.4.1: Create `/api/disasters` route
+    - [x]  File: `backend/routes/disasters.js`
+    - [x]  Registered in server.js, returns mock response for now
+- [x]  Sub-todo 2.4.2: Add API key management
+    - [x]  Created `.env` file for API keys, loaded with dotenv in server.js, and accessed via process.env in route files
+- [x]  Sub-todo 2.4.3: Implement mock data fallback
+    - [x]  Created `mock-data/disasters.json` and updated disasters route to serve mock data if real API fails
 
 ---
 

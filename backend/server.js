@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth.js';
 import locationsRoutes from './routes/locations.js';
+import disasterRoutes from './routes/disasters.js';
 
 dotenv.config();
 
@@ -17,6 +18,9 @@ app.use('/api/auth', authRoutes);
 
 // register locations routes
 app.use('/api/locations', locationsRoutes);
+
+// register disaster routes
+app.use('/api/disasters', disasterRoutes);
 
 app.get('/', (req, res) => {
     res.send('Server running!');

@@ -54,3 +54,18 @@ Date: June 28, 2025, 9:15 PM IST Performed By: Prajith Ravisankar
 
 Date: June 28, 2025, 9:25 PM IST Performed By: Prajith Ravisankar
 ---
+### Sub-todo 2.4.1: Create /api/disasters route
+- Created `backend/routes/disasters.js` and registered in server.js. Returns mock response for now.
+
+Date: June 29, 2025, 2:44 AM IST Performed By: Prajith Ravisankar
+---
+### Sub-todo 2.4.2: Add API key management
+- Created `.env` for API keys, loaded with dotenv in server.js, and accessed via process.env in route files.
+
+Date: June 29, 2025, 2:51 AM IST Performed By: Prajith Ravisankar
+---
+### Sub-todo 2.4.3: Implement mock data fallback
+- Created `mock-data/disasters.json` and updated disasters route to serve mock data if real API fails.
+
+Date: June 29, 2025, 3:00 AM IST Performed By: Prajith Ravisankar
+---
