@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, Popup, ZoomControl, useMap, Tooltip, Circle, Polyline } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, ZoomControl, useMap, Tooltip, Circle, Polyline, useMapEvents } from "react-leaflet";
 import 'leaflet/dist/leaflet.css';
 import { useEffect, useState } from "react";
 import { getDisasterData } from "../services/disasterService.js";
@@ -15,13 +15,36 @@ function ChangeView({ center, zoom }) {
     return null;
 }
 
-function MapView({ mapCenter, locations, onLocationUpdate, onMarkerClick, selectedMarker, searchInProgress, onSearchComplete, searchResult }) {
+// Component to handle map clicks and show coordinates
+function MapClickHandler({ onMapClick }) {
+    useMapEvents({
+        click: (e) => {
+            const { lat, lng } = e.latlng;
+            onMapClick({ lat, lon: lng });
+        }
+    });
+    return null;
+}
+
+function MapView({ mapCenter, locations, onLocationUpdate, onMarkerClick, selectedMarker, searchInProgress, onSearchComplete, searchResult, onCoordinatesClick }) {
 
     const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
 
     const [disasterData, setDisasterData] = useState(null);
     const [searchRadius, setSearchRadius] = useState(0);
     const [animationActive, setAnimationActive] = useState(false);
+    const [clickedCoords, setClickedCoords] = useState(null);
+
+    // Handle map clicks to show coordinates
+    const handleMapClick = (coords) => {
+        setClickedCoords(coords);
+        // Also call the parent handler if provided
+        if (onCoordinatesClick) {
+            onCoordinatesClick(coords);
+        }
+        // Auto-hide after 5 seconds
+        setTimeout(() => setClickedCoords(null), 5000);
+    };
 
     useEffect(() => {
         getDisasterData().then(data => {
@@ -149,6 +172,36 @@ function MapView({ mapCenter, locations, onLocationUpdate, onMarkerClick, select
                 zoomControl={false}
             >
                 <ChangeView center={mapCenter} zoom={12} />
+                <MapClickHandler onMapClick={handleMapClick} />
+                
+                {/* Coordinate Display Marker */}
+                {clickedCoords && (
+                    <Marker
+                        position={[clickedCoords.lat, clickedCoords.lon]}
+                        icon={new L.Icon({
+                            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+                            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                            iconSize: [25, 41],
+                            iconAnchor: [12, 41],
+                            popupAnchor: [1, -34],
+                            shadowSize: [41, 41]
+                        })}
+                    >
+                        <Popup>
+                            <div className="text-center">
+                                <strong>📍 Coordinates</strong><br />
+                                <div className="font-mono text-sm mt-2">
+                                    <div><strong>Latitude:</strong> {clickedCoords.lat.toFixed(6)}</div>
+                                    <div><strong>Longitude:</strong> {clickedCoords.lon.toFixed(6)}</div>
+                                </div>
+                                <div className="text-xs text-gray-500 mt-2">
+                                    Click elsewhere or wait 5s to clear
+                                </div>
+                            </div>
+                        </Popup>
+                    </Marker>
+                )}
+
                 <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

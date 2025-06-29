@@ -18,6 +18,7 @@ function App() {
   const [selectedMarker, setSelectedMarker] = useState(null); // For radial search feature
   const [searchInProgress, setSearchInProgress] = useState(false);
   const [searchResult, setSearchResult] = useState(null);
+  const [clickedCoordinates, setClickedCoordinates] = useState(null);
 
   // Load locations on initial app load if user is already logged in
   useEffect(() => {
@@ -96,6 +97,12 @@ function App() {
     setSearchResult(null);
   };
 
+  const handleCoordinatesClick = (coords) => {
+    setClickedCoordinates(coords);
+    // Auto-clear after 10 seconds
+    setTimeout(() => setClickedCoordinates(null), 10000);
+  };
+
   // Show loading screen
   if (isLoading) {
     return (
@@ -147,8 +154,27 @@ function App() {
           <div className='flex-1 min-h-[600px]'>
             <div className="bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 overflow-hidden h-full">
               <div className="p-6 border-b border-white/10">
-                <h2 className="text-2xl font-semibold text-white mb-2">Live Safety Map</h2>
-                <p className="text-gray-400">Real-time disaster tracking and your saved locations</p>
+                <div className="flex justify-between items-center">
+                  <div>
+                    <h2 className="text-2xl font-semibold text-white mb-2">Live Safety Map</h2>
+                    <p className="text-gray-400">Real-time disaster tracking and your saved locations</p>
+                    <p className="text-blue-300 text-xs mt-1">💡 Click anywhere on the map to see coordinates</p>
+                  </div>
+                  {clickedCoordinates && (
+                    <div className="bg-blue-500/20 backdrop-blur-sm border border-blue-500/30 rounded-lg px-4 py-2 text-right">
+                      <div className="text-blue-400 text-sm font-medium">📍 Clicked Coordinates</div>
+                      <div className="text-white font-mono text-sm">
+                        {clickedCoordinates.lat.toFixed(6)}, {clickedCoordinates.lon.toFixed(6)}
+                      </div>
+                      <button 
+                        onClick={() => setClickedCoordinates(null)}
+                        className="text-blue-400 hover:text-blue-300 text-xs mt-1"
+                      >
+                        Clear
+                      </button>
+                    </div>
+                  )}
+                </div>
               </div>
               <div className="h-[calc(100%-120px)] min-h-[500px]">
                 <MapView 
@@ -160,6 +186,7 @@ function App() {
                   searchInProgress={searchInProgress}
                   onSearchComplete={handleSearchComplete}
                   searchResult={searchResult}
+                  onCoordinatesClick={handleCoordinatesClick}
                 />
               </div>
             </div>
