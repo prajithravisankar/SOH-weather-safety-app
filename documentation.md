@@ -177,7 +177,22 @@ Date: June 29, 2025, 11:45 PM IST, Performed By: Prajith Ravisankar
 - Added ChangeView component to MapView for smooth map panning when clicking locations.
 - Enhanced LocationForm: horizontal layout on desktop, all inputs + button in one row.
 - Added proper visual hierarchy with dark theme styling and better spacing.
+---
+### Phase 5: API Resilience & Fallbacks - NASA EONET Integration
+- Integrated NASA EONET API (v3) in backend `/api/disasters` route to fetch real-time global disaster events.
+- Implemented robust error handling: if EONET API fails or is unavailable, backend automatically falls back to local mock data (`mock-data/disasters.json`).
+- No changes required in frontend: data structure matches EONET API, so UI updates seamlessly.
+- Verified in browser and terminal: real events display on map, fallback works if API is unreachable.
+- This completes Phase 5 core requirements for API resilience and real-world data integration.
+---
+### Main Todo 8.1: Backend User Authentication Completed
+- Created `mock-data/users.json` to store user accounts as an array of objects with username, password, and createdAt fields.
+- Implemented `/api/auth/register` route to allow new user registration, ensuring unique usernames and proper error handling for empty or missing files.
+- Implemented `/api/auth/login` route to authenticate users against stored credentials.
+- Both endpoints return clear success/error messages and are ready for frontend integration.
+- Tested registration and login with curl and confirmed correct file updates and responses.
 
+Date: June 29, 2025, 7:29 PM IST, Performed By: Prajith Ravisankar
 
 
 

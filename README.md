@@ -183,17 +183,12 @@ weather-safety-app/
 
 ### Main Todo 5.1: Fallback Data Strategy
 
-- [ ]  Sub-todo 5.1.1: Create `/mock-data/disasters.json`
-    - [ ]  Include sample earthquake/weather data
-- [ ]  Sub-todo 5.1.2: Add error handling in `disasterService.js`
-    - [ ]  If API fails, return mock data from `/mock-data/disasters.json`
-
-### Main Todo 5.2: Rate Limit Handling
-
-- [ ]  Sub-todo 5.2.1: Throttle API requests
-    - [ ]  Use `lodash.throttle` to limit calls to once every 5 seconds
-- [ ]  Sub-todo 5.2.2: Add retry logic
-    - [ ]  Retry failed requests 3 times before falling back
+- [x]  Sub-todo 5.1.1: Create `/mock-data/disasters.json`
+    - [x]  Include sample earthquake/weather data
+- [x]  Sub-todo 5.1.2: Add error handling in `disasterService.js`
+    - [x]  If API fails, return mock data from `/mock-data/disasters.json`
+    - [x]  Integrated NASA EONET API (v3) in backend `/api/disasters` route for real-time disaster data
+    - [x]  Automatic fallback to mock data if EONET API is unavailable
 
 ---
 
@@ -240,5 +235,54 @@ weather-safety-app/
 
 - [ ]  Sub-todo 7.3.1: Add screenshots to README
 - [ ]  Sub-todo 7.3.2: Document setup instructions
+
+---
+
+## Phase 8: User Authentication & Data Isolation
+
+**Goal**: Implement user login/signup system with user-specific location data.
+
+### Main Todo 8.1: Backend User Authentication
+
+- [x]  Sub-todo 8.1.1: Create user storage system
+    - [x]  Create `mock-data/users.json` file for storing user accounts
+    - [x]  Structure: `[{username: "user1", password: "pass123", createdAt: "date"}]`
+- [x]  Sub-todo 8.1.2: Update `/api/auth` routes
+    - [x]  Replace mock login with real username/password validation
+    - [x]  Add `POST /api/auth/register` for new user registration
+    - [x]  Add `POST /api/auth/login` for user authentication
+    - [x]  Return user session token or username on successful login
+
+### Main Todo 8.2: User-Specific Location Storage
+
+- [ ]  Sub-todo 8.2.1: Update location file structure
+    - [ ]  Delete existing `mock-data/members.json`
+    - [ ]  Create user-specific files: `mock-data/{username}-locations.json`
+    - [ ]  Each file contains locations array for that specific user
+- [ ]  Sub-todo 8.2.2: Modify `/api/locations` routes
+    - [ ]  Add authentication check to all location endpoints
+    - [ ]  Read/write from user-specific location files
+    - [ ]  Ensure users can only access their own locations
+
+### Main Todo 8.3: Frontend Authentication UI
+
+- [ ]  Sub-todo 8.3.1: Create authentication components
+    - [ ]  Create `LoginForm.jsx` component with username/password fields
+    - [ ]  Create `SignupForm.jsx` component with username/password fields
+    - [ ]  Create `AuthPage.jsx` to toggle between login and signup
+- [ ]  Sub-todo 8.3.2: Add authentication flow to App
+    - [ ]  Add login state management to `App.jsx`
+    - [ ]  Show AuthPage if not logged in, show main app if logged in
+    - [ ]  Add logout functionality with button in header
+
+### Main Todo 8.4: Session Management
+
+- [ ]  Sub-todo 8.4.1: Implement simple session storage
+    - [ ]  Use localStorage to persist login between browser sessions
+    - [ ]  Add authentication service functions in `authService.js`
+- [ ]  Sub-todo 8.4.2: Update location services
+    - [ ]  Modify `locationService.js` to include user authentication
+    - [ ]  Send username/token with all location API requests
+    - [ ]  Handle authentication errors and redirect to login
 
 ---
