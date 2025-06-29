@@ -1,4 +1,5 @@
 import express from 'express';    
+import path from 'path';
 import { readFile } from 'fs/promises';
 
 const router = express.Router();
@@ -14,7 +15,8 @@ router.get('/', async (req, res) => {
         throw new Error('Simulating API failure');
     } catch (error) {
         try {
-            const data = await readFile('./mock-data/disasters.json', 'utf-8');
+            const filePath = path.resolve(process.cwd(), '../mock-data/disasters.json');
+            const data = await readFile(filePath, 'utf-8');
             res.json(JSON.parse(data));
         } catch (err) {
             res.status(500).json({error: 'Failed to load disaster data'});

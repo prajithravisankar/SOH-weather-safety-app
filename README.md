@@ -137,9 +137,11 @@ weather-safety-app/
 ### Main Todo 3.3: Weather Overlay
 
 - [x]  Sub-todo 3.3.1: Fetch disaster data from backend using getDisasterData() in disasterService.js. Data is loaded into MapView state from /api/disasters (mock data for MVP). [2025-06-29 IST]
-- [ ]  Sub-todo 3.3.2: Display earthquake markers
-    - [ ]  Parse USGS earthquake data (example: `https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson`)
-    - [ ]  Add `Marker` components for each earthquake
+- [x]  Sub-todo 3.3.2: Display disaster event markers
+    - [x]  Parsed EONET-style mock disaster data from `mock-data/disasters.json`
+    - [x]  Added `Marker` components for each event with Point geometry (all categories)
+    - [x]  Showed event details (title, description, category, date) in marker popups
+    - [x]  Verified markers render and popups display correct info
 
 ---
 

@@ -1,8 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from "react-leaflet";
 import 'leaflet/dist/leaflet.css';
 import { useEffect, useState } from "react";
-import { getDisasterData } from "../services/disasterService";
-import { data } from "autoprefixer";
+import { getDisasterData } from "../services/disasterService.js";
 
 function MapView() {
 
@@ -29,11 +28,23 @@ function MapView() {
                     opacity={0.8}
                     zIndex={1000}
                 />      
-                <Marker position={[37.7749, -122.4194]}>
-                    <Popup>
-                        San Francisco
-                    </Popup>
-                </Marker>
+                {disasterData && disasterData.events && disasterData.events.flatMap((event) =>
+                event.geometry
+                    .filter(g => g.type === "Point")
+                    .map((g, idx) => (
+                    <Marker
+                        key={event.id + idx}
+                        position={[g.coordinates[1], g.coordinates[0]]}
+                    >
+                        <Popup>
+                        <strong>{event.title}</strong><br />
+                        {event.description}<br />
+                        <em>{event.categories[0]?.title}</em><br />
+                        {new Date(g.date).toLocaleString()}
+                        </Popup>
+                    </Marker>
+                    ))
+                )}
                 <ZoomControl position="topright" />
             </MapContainer>
         </div>

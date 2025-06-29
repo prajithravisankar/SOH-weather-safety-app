@@ -112,4 +112,22 @@ Date: June 29, 4:38 PM 2025, Performed By: Prajith Ravisankar
 
 Date: June 29, 2025 10:15 AM IST, Performed By: Prajith Ravisankar
 ---
+### EONET-Compatible Mock Data for Disasters (Post 3.3.1)
+- Refactored `mock-data/disasters.json` to match the EONET API structure (id, title, description, categories, geometry, etc.).
+- Added 2–3 mock events for each EONET category, with realistic coordinates and dates.
+- This approach ensures seamless transition to the real NASA EONET API with minimal code changes.
+- Frontend and backend can now parse and display disaster events using the same data contract as the live API.
+- Documented all available EONET categories for future filtering and UI enhancements.
+
+Date: June 29, 2025 12:30 AM IST, Performed By: Prajith Ravisankar
+---
+### Sub-todo 3.3.2: Display disaster event markers
+- Parsed EONET-style mock disaster data from `mock-data/disasters.json` in the frontend.
+- Rendered a map marker for each event with Point geometry, covering all EONET categories.
+- Popups display event title, description, category, and date for each marker.
+- Verified that markers and popups appear correctly on the map after fixing backend path and proxy issues.
+
+Date: June 29, 2025 1:31 PM IST, Performed By: Prajith Ravisankar
+---
+
 
