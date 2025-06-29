@@ -97,6 +97,42 @@ SafeGuard demonstrates:
 
 ---
 
+## 📸 **Screenshots & Demo**
+
+### **Application Overview**
+
+![SafeGuard Main Interface](project-media/image.png)
+*SafeGuard's main dashboard showing the interactive safety map with real-time disaster tracking and location management*
+
+![Authentication System](project-media/image%20copy.png)
+*Secure user authentication with registration and login functionality*
+
+![Location Management](project-media/image%20copy%202.png)
+*Smart location management system with address autocomplete and place type selection*
+
+![Interactive Map Features](project-media/image%20copy%203.png)
+*Interactive map with disaster markers, user locations, and coordinate display functionality*
+
+![Proximity Search Animation](project-media/image%20copy%204.png)
+*Intelligent proximity search feature showing radial search animation*
+
+![Location List Sidebar](project-media/image%20copy%205.png)
+*Comprehensive location list with contact information and quick navigation*
+
+![Responsive Design - Mobile](project-media/image%20copy%206.png)
+*Mobile-responsive interface optimized for touch interactions*
+
+![Desktop Full-Width Layout](project-media/image%20copy%207.png)
+*Full desktop experience utilizing entire screen width with enhanced map visibility*
+
+![Real-time Coordinate Display](project-media/image%20copy%208.png)
+*Click-to-show coordinate feature with precise GPS positioning*
+
+![Complete Safety Dashboard](project-media/image%20copy%209.png)
+*Complete safety dashboard showing the integration of all features working together*
+
+---
+
 > **Note:** For MVP and rapid prototyping, we are using mock data (see `mock-data/disasters.json` and similar files) for disaster events and locations wherever necessary. This allows us to build and test the UI and core flows quickly. Real API integration will be added after the MVP is functional and tested.
 
 ## 🚀 How to Run the Project
