@@ -90,48 +90,79 @@ function App() {
 
   // Show main app if logged in
   return (
-    <div className='p-4 min-h-screen bg-[#1a1a1a]'>
+    <div className='min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900'>
       {/* Header with user info and logout */}
-      <div className="flex justify-between items-center mb-6">
-        <h1 className='text-3xl font-bold text-white'>Weather Safety App</h1>
-        <div className="flex items-center gap-4">
-          <span className="text-gray-300">Welcome, {user}!</span>
-          <button
-            onClick={handleLogout}
-            className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors"
-          >
-            Logout
-          </button>
+      <div className="bg-white/5 backdrop-blur-lg border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex justify-between items-center">
+            <div>
+              <h1 className='text-4xl font-bold bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent'>
+                SafeGuard
+              </h1>
+              <p className="text-gray-400 text-sm mt-1">Weather Safety & Location Monitoring</p>
+            </div>
+            <div className="flex items-center gap-6">
+              <div className="text-right">
+                <div className="text-white font-medium">Welcome back, {user}!</div>
+                <div className="text-gray-400 text-sm">Stay safe, stay connected</div>
+              </div>
+              <button
+                onClick={handleLogout}
+                className="px-6 py-3 bg-red-500/20 text-red-400 border border-red-500/30 rounded-xl hover:bg-red-500/30 transition-all duration-200 backdrop-blur-sm"
+              >
+                Logout
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       
-      {/* Map and Location List Side by Side */}
-      <div className='flex flex-col lg:flex-row gap-4 mb-6'>
-        {/* Map Container - Takes up most of the width */}
-        <div className='flex-1 min-h-[400px]'>
-          <MapView 
-            mapCenter={mapCenter}
-            locations={locations}
-            onLocationUpdate={setLocations}
-          />
+      {/* Main Content Area */}
+      <div className="max-w-7xl mx-auto px-6 py-8">
+        {/* Map and Location List Side by Side */}
+        <div className='flex flex-col xl:flex-row gap-8 mb-12'>
+          {/* Map Container - Larger and more prominent */}
+          <div className='flex-1'>
+            <div className="bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 overflow-hidden">
+              <div className="p-6 border-b border-white/10">
+                <h2 className="text-2xl font-semibold text-white mb-2">Live Safety Map</h2>
+                <p className="text-gray-400">Real-time disaster tracking and your saved locations</p>
+              </div>
+              <div className="h-[600px]">
+                <MapView 
+                  mapCenter={mapCenter}
+                  locations={locations}
+                  onLocationUpdate={setLocations}
+                />
+              </div>
+            </div>
+          </div>
+          
+          {/* Location List Sidebar - More spacious */}
+          <div className='w-full xl:w-96'>
+            <div className='bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 p-6'>
+              <div className="mb-6">
+                <h2 className='text-2xl font-semibold text-white mb-2'>Your Locations</h2>
+                <p className="text-gray-400 text-sm">Manage your important places</p>
+              </div>
+              <LocationList 
+                locations={locations} 
+                setMapCenter={setMapCenter}
+                onLocationUpdate={setLocations}
+                username={user}
+              />
+            </div>
+          </div>
         </div>
         
-        {/* Location List Sidebar */}
-        <div className='w-full lg:w-80 bg-[#242424] rounded-lg p-4 border border-[#333]'>
-          <h2 className='text-xl font-semibold text-white mb-3'>Saved Locations</h2>
-          <LocationList 
-            locations={locations} 
-            setMapCenter={setMapCenter}
-            onLocationUpdate={setLocations}
-            username={user}
-          />
+        {/* Location Form - Full width, more prominent */}
+        <div className='bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 p-8'>
+          <div className="text-center mb-8">
+            <h2 className='text-2xl font-semibold text-white mb-2'>Add New Location</h2>
+            <p className="text-gray-400">Track important places like home, work, or family locations</p>
+          </div>
+          <LocationForm onLocationAdded={handleLocationAdded} username={user} />
         </div>
-      </div>
-      
-      {/* Location Form Below the Map */}
-      <div className='max-w-4xl mx-auto'>
-        <h2 className='text-xl font-semibold text-white mb-3 text-center'>Add New Location</h2>
-        <LocationForm onLocationAdded={handleLocationAdded} username={user} />
       </div>
     </div>
   );

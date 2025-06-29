@@ -36,13 +36,13 @@ function LoginForm({ onLogin, onSwitchToSignup }) {
     return (
         <form
             onSubmit={handleSubmit}
-            className="max-w-md mx-auto p-6 bg-[#242424] rounded-lg shadow border border-[#333]"
+            className="w-full max-w-md mx-auto p-8 bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10"
         >
-            <h2 className="text-2xl font-bold text-white mb-6 text-center">Login</h2>
+            <h2 className="text-3xl font-bold text-white mb-8 text-center">Welcome Back</h2>
             
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-6">
                 <div className="flex flex-col">
-                    <label htmlFor="username" className="text-sm font-medium text-white mb-1">
+                    <label htmlFor="username" className="text-sm font-medium text-white mb-3">
                         Username
                     </label>
                     <input
@@ -52,12 +52,12 @@ function LoginForm({ onLogin, onSwitchToSignup }) {
                         onChange={handleChange}
                         placeholder="Enter your username"
                         required
-                        className="rounded-md border border-[#333] bg-[#1a1a1a] text-white px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500"
+                        className="h-12 rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm text-white px-4 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/50 transition-all duration-200 placeholder-gray-400"
                     />
                 </div>
                 
                 <div className="flex flex-col">
-                    <label htmlFor="password" className="text-sm font-medium text-white mb-1">
+                    <label htmlFor="password" className="text-sm font-medium text-white mb-3">
                         Password
                     </label>
                     <input
@@ -68,31 +68,34 @@ function LoginForm({ onLogin, onSwitchToSignup }) {
                         onChange={handleChange}
                         placeholder="Enter your password"
                         required
-                        className="rounded-md border border-[#333] bg-[#1a1a1a] text-white px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500"
+                        className="h-12 rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm text-white px-4 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/50 transition-all duration-200 placeholder-gray-400"
                     />
                 </div>
                 
                 <button
                     type="submit"
                     disabled={isLoading}
-                    className="py-2 px-4 bg-indigo-600 text-white font-semibold rounded-md shadow hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400 disabled:opacity-50"
-                    style={{ backgroundColor: "#646cff" }}
+                    className="h-12 bg-gradient-to-r from-blue-500 to-emerald-500 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400/50 disabled:opacity-50 disabled:hover:scale-100 transition-all duration-200"
                 >
-                    {isLoading ? "Logging in..." : "Login"}
+                    {isLoading ? "Signing in..." : "Sign In"}
                 </button>
                 
                 {status && (
-                    <div className={`text-sm mt-2 text-center ${status.includes('successful') ? 'text-green-400' : 'text-red-400'}`}>
+                    <div className={`text-sm text-center p-3 rounded-lg ${
+                        status.includes('successful') 
+                            ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' 
+                            : 'bg-red-500/20 text-red-400 border border-red-500/30'
+                    }`}>
                         {status}
                     </div>
                 )}
                 
-                <div className="text-center mt-4">
+                <div className="text-center mt-6">
                     <span className="text-gray-400">Don't have an account? </span>
                     <button
                         type="button"
                         onClick={onSwitchToSignup}
-                        className="text-indigo-400 hover:text-indigo-300 underline"
+                        className="text-blue-400 hover:text-blue-300 underline font-medium transition-colors"
                     >
                         Sign up
                     </button>

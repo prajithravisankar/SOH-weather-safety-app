@@ -13,10 +13,14 @@ function AuthPage({ onAuth }) {
     const switchToLogin = () => setIsLogin(true);
 
     return (
-        <div className="min-h-screen bg-[#1a1a1a] flex flex-col items-center justify-center p-4">
-            <div className="mb-8 text-center">
-                <h1 className="text-4xl font-bold text-white mb-2">Weather Safety App</h1>
-                <p className="text-gray-400">Track locations and stay safe during disasters</p>
+        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex flex-col items-center justify-center p-4">
+            <div className="mb-12 text-center">
+                <h1 className="text-6xl font-bold bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent mb-4">
+                    SafeGuard
+                </h1>
+                <p className="text-gray-400 text-xl max-w-md mx-auto leading-relaxed">
+                    Track locations and stay safe during disasters. Keep your loved ones informed.
+                </p>
             </div>
             
             {isLogin ? (
