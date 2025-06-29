@@ -145,6 +145,15 @@ Date: June 29, 2025, 3:40 PM IST, Performed By: Prajith Ravisankar
 - Confirmed robust error handling and user feedback in the UI.
 
 Date: June 29, 2025, 4:38 PM IST, Performed By: Prajith Ravisankar
+---
+### Sub-todo 4.2.1: Fetch and display locations on map and list
+- Implemented `getLocations()` in locationService.js to fetch locations from backend.
+- Used `useEffect` in both LocationList.jsx and MapView.jsx to load locations on mount.
+- Locations now appear as custom markers on the map and as a list in the sidebar.
+- Verified that adding a new location updates both the map and the list in real time.
+
+Date: June 29, 2025, 10:30 PM IST, Performed By: Prajith Ravisankar
+
 
 
 

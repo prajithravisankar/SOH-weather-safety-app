@@ -1,9 +1,22 @@
-import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, ZoomControl, useMap } from "react-leaflet";
 import 'leaflet/dist/leaflet.css';
 import { useEffect, useState } from "react";
 import { getDisasterData } from "../services/disasterService.js";
+import { getLocations } from "../services/locationService.js";
+import L from 'leaflet';
 
-function MapView() {
+// Component to handle map center changes
+function ChangeView({ center, zoom }) {
+    const map = useMap();
+    useEffect(() => {
+        if (center) {
+            map.setView(center, zoom || map.getZoom());
+        }
+    }, [center, zoom, map]);
+    return null;
+}
+
+function MapView({ mapCenter, locations, onLocationUpdate }) {
 
     const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
 
@@ -16,9 +29,46 @@ function MapView() {
         });
     }, []);
 
+    // Fetch locations when component mounts or when onLocationUpdate changes
+    useEffect(() => {
+        if (onLocationUpdate) {
+            getLocations().then(data => {
+                onLocationUpdate(data);
+            }).catch(error => {
+                console.error("Error fetching locations:", error);
+            });
+        }
+    }, [onLocationUpdate]);
+
+    // Create custom icon for user locations (green for safety/home)
+    const userLocationIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+    // Create custom icon for disaster events (red for danger)
+    const disasterIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
     return (
         <div className="h-96 w-full rounded-lg overflow-hidden">
-            <MapContainer center={[37.7749, -122.4194]} zoom={10} style={{height: '100%', width: '100%'}} zoomControl={false}>
+            <MapContainer 
+                center={mapCenter || [37.7749, -122.4194]} 
+                zoom={10} 
+                style={{height: '100%', width: '100%'}} 
+                zoomControl={false}
+            >
+                <ChangeView center={mapCenter} zoom={12} />
                 <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -28,6 +78,23 @@ function MapView() {
                     opacity={0.8}
                     zIndex={1000}
                 />      
+                
+                {/* User Location Markers */}
+                {locations && locations.map((location) => (
+                    <Marker
+                        key={location.id}
+                        position={[location.lat, location.lon]}
+                        icon={userLocationIcon}
+                    >
+                        <Popup>
+                            <strong>🏠 {location.name}</strong><br />
+                            <em>Your saved location</em><br />
+                            Coordinates: {location.lat.toFixed(4)}, {location.lon.toFixed(4)}
+                        </Popup>
+                    </Marker>
+                ))}
+
+                {/* Disaster Event Markers */}
                 {disasterData && disasterData.events && disasterData.events.flatMap((event) =>
                 event.geometry
                     .filter(g => g.type === "Point")
@@ -35,12 +102,13 @@ function MapView() {
                     <Marker
                         key={event.id + idx}
                         position={[g.coordinates[1], g.coordinates[0]]}
+                        icon={disasterIcon}
                     >
                         <Popup>
-                        <strong>{event.title}</strong><br />
+                        <strong>🚨 {event.title}</strong><br />
                         {event.description}<br />
-                        <em>{event.categories[0]?.title}</em><br />
-                        {new Date(g.date).toLocaleString()}
+                        <em>Category: {event.categories[0]?.title}</em><br />
+                        <em>Date: {new Date(g.date).toLocaleString()}</em>
                         </Popup>
                     </Marker>
                     ))
