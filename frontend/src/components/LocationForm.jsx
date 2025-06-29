@@ -11,7 +11,7 @@ const validate = ({ name, latitude, longitude}) => {
     return null;
 }
 
-function LocationForm({ onLocationAdded }) {
+function LocationForm({ onLocationAdded, username }) {
     const [formData, setFormData] = useState({ name: "", latitude: "", longitude: ""});
     const [status, setStatus] = useState("");
 
@@ -36,13 +36,10 @@ function LocationForm({ onLocationAdded }) {
             return;
         }
         try {
-            await addLocation(formData);
+            await addLocation({ ...formData, username });
             setStatus("location added!");
             setFormData({ name: "", latitude: "", longitude: "" });
-            // Trigger parent component to refresh locations
-            if (onLocationAdded) {
-                onLocationAdded();
-            }
+            if (onLocationAdded) onLocationAdded();
         } catch (error) {
             setStatus("Error adding location");
         }

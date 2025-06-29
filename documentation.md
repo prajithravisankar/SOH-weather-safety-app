@@ -193,6 +193,30 @@ Date: June 29, 2025, 11:45 PM IST, Performed By: Prajith Ravisankar
 - Tested registration and login with curl and confirmed correct file updates and responses.
 
 Date: June 29, 2025, 7:29 PM IST, Performed By: Prajith Ravisankar
+---
+### Main Todo 8.2: User-Specific Location Storage Completed
+- Deleted legacy `members.json` and created user-specific location files (e.g., `testuser-locations.json`).
+- Updated backend `/api/locations` routes to require username for all operations.
+- Each user's locations are now stored and managed in their own file, ensuring complete data isolation.
+- Helper functions handle file reading/writing and auto-create files for new users.
+- Tested GET, POST, and DELETE endpoints for multiple users and confirmed correct file updates and data isolation.
+
+Date: June 29, 2025, 8:03 PM IST, Performed By: Prajith Ravisankar
+---
+### Sub-todo 8.3.1: Create authentication components completed
+- Implemented `LoginForm.jsx` for user login with validation and error handling.
+- Implemented `SignupForm.jsx` for user registration with password confirmation and validation.
+- Implemented `AuthPage.jsx` to toggle between login and signup forms and handle authentication state.
+- All components styled to match the app's dark theme and tested for correct UI/UX.
+
+Date: June 29, 2025, 8:20 PM IST, Performed By: Prajith Ravisankar
+---
+### Sub-todo 8.3.2: Add authentication flow to App completed
+- Updated `App.jsx` to manage login state, persist user in localStorage, and show `AuthPage` if not logged in.
+- Integrated logout button and welcome message in the app header.
+- Passed username to all location-related components and API calls for user-specific data.
+- Verified that authentication flow works end-to-end and user experience is seamless.
+
 
 
 

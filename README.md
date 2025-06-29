@@ -255,25 +255,27 @@ weather-safety-app/
 
 ### Main Todo 8.2: User-Specific Location Storage
 
-- [ ]  Sub-todo 8.2.1: Update location file structure
-    - [ ]  Delete existing `mock-data/members.json`
-    - [ ]  Create user-specific files: `mock-data/{username}-locations.json`
-    - [ ]  Each file contains locations array for that specific user
-- [ ]  Sub-todo 8.2.2: Modify `/api/locations` routes
-    - [ ]  Add authentication check to all location endpoints
-    - [ ]  Read/write from user-specific location files
-    - [ ]  Ensure users can only access their own locations
+- [x]  Sub-todo 8.2.1: Update location file structure
+    - [x]  Deleted existing `mock-data/members.json`
+    - [x]  Created user-specific files: `mock-data/{username}-locations.json`
+    - [x]  Each file contains locations array for that specific user
+- [x]  Sub-todo 8.2.2: Modify `/api/locations` routes
+    - [x]  All location endpoints require username
+    - [x]  Read/write from user-specific location files
+    - [x]  Users can only access their own locations
+    - [x]  Helper functions manage file operations and auto-create files as needed
 
 ### Main Todo 8.3: Frontend Authentication UI
 
-- [ ]  Sub-todo 8.3.1: Create authentication components
-    - [ ]  Create `LoginForm.jsx` component with username/password fields
-    - [ ]  Create `SignupForm.jsx` component with username/password fields
-    - [ ]  Create `AuthPage.jsx` to toggle between login and signup
-- [ ]  Sub-todo 8.3.2: Add authentication flow to App
-    - [ ]  Add login state management to `App.jsx`
-    - [ ]  Show AuthPage if not logged in, show main app if logged in
-    - [ ]  Add logout functionality with button in header
+- [x]  Sub-todo 8.3.1: Create authentication components
+    - [x]  Created `LoginForm.jsx` for user login
+    - [x]  Created `SignupForm.jsx` for user registration
+    - [x]  Created `AuthPage.jsx` to toggle between login and signup
+- [x]  Sub-todo 8.3.2: Add authentication flow to App
+    - [x]  Added login state management and persistent sessions in `App.jsx`
+    - [x]  Show `AuthPage` if not logged in, show main app if logged in
+    - [x]  Added logout functionality with button in header
+    - [x]  Passed username to all location-related components and API calls
 
 ### Main Todo 8.4: Session Management
 

@@ -1,61 +1,101 @@
+import { error } from 'console';
 import express from 'express';
-import { readFile, writeFile } from "fs/promises";
+import { readFile, writeFile } from 'fs/promises';
 import path from "path";
-
-const membersFile = path.resolve(process.cwd(), "../mock-data/members.json");
 
 const router = express.Router();
 
-// GET /api/locations - return all locations
-router.get('/', async (req, res) => {
+// helper function to get user's location file path
+const getUserLocationFile = (username) => {
+    return path.resolve(process.cwd(), `../mock-data/${username}-locations.json`);
+};
+
+// helper function to read user's locations
+const readUserLocations = async (username) => {
     try {
-        const data = await readFile(membersFile, "utf-8");
-        const locations = JSON.parse(data);
+        const filePath = getUserLocationFile(username);
+        const data = await readFile(filePath, "utf-8");
+        return data.trim() ? JSON.parse(data) : [];
+    } catch (error) {
+        return [];
+    }
+};
+
+// helper function to write user's locations
+const writeUserLocations = async (username, locations) => {
+    const filePath = getUserLocationFile(username);
+    await writeFile(filePath, JSON.stringify(locations, null, 2));
+};
+
+// GET /api/locations - return user's locations
+router.get('/', async (req, res) => {
+    const { username } = req.query;
+
+    if (!username) {
+        return res.status(400).json({ error: "username is required" });
+    }
+
+    try {
+        const locations = await readUserLocations(username);
         res.json(locations);
     } catch (err) {
-        res.status(500).json({ error: "Failed to read locations" });
+        console.error('error reading locations: ', err);
+        res.status(500).json({ error: 'Failed to read locations' });
     }
 });
 
-// POST /api/locations - add a new location
+// POST /api/locations - add a new location for user
 router.post('/', async (req, res) => {
-    const { name, lat, lon } = req.body;
-    if (!name || !lat || !lon) {
-        return res.status(400).json({ error: 'missing required fields' });
+    const { name, lat, lon, username } = req.body;
+
+    if (!name || !lat || !lon || !username) {
+        return res.status(400).json({ error: 'Name, lat, lon, and username are required' });
     }
+
     try {
-        const data = await readFile(membersFile, "utf-8");
-        const locations = JSON.parse(data);
+        const locations = await readUserLocations(username);
+
         const newLocation = {
-            id: locations.length > 0 ? locations[locations.length - 1].id + 1 : 1,
-            name,
-            lat,
-            lon
+            id: locations.length > 0 ? Math.max(...locations.map(l => l.id)) + 1 : 1, 
+            name, 
+            lat: parseFloat(lat), 
+            lon: parseFloat(lon)
         };
+
         locations.push(newLocation);
-        await writeFile(membersFile, JSON.stringify(locations, null, 2));
+        await writeUserLocations(username, locations);
         res.status(201).json(newLocation);
+
     } catch (err) {
-        res.status(500).json({ error: "Failed to add location" });
+        console.error('Error adding location: ', err);
+        res.status(500).json({ error: "failed to add location" });
     }
 });
 
-
-// DELETE /api/locations/:id - remove a locaiton by id
+// DELETE /api/locations/:id - remove a location by id for user
 router.delete('/:id', async (req, res) => {
+    const { username } = req.query;
     const id = parseInt(req.params.id, 10);
+
+    if (!username) {
+        return req.status(400).json({ error: "username is required" });
+    }
+
     try {
-        const data = await readFile(membersFile, "utf-8");
-        let locations = JSON.parse(data);
-        const index = locations.findIndex(loc => loc.id === id);
+        const locations = await readUserLocations(username);
+        const index = location.findIndex(loc => loc.id === id);
+
         if (index === -1) {
-            return res.status(404).json({ error: 'Location not found' });
+            return res.status(404).json({ error: 'location not found' });
         }
+
         const removed = locations.splice(index, 1);
-        await writeFile(membersFile, JSON.stringify(locations, null, 2));
+        await writeUserLocations(username, locations);
         res.json(removed[0]);
+
     } catch (err) {
-        res.status(500).json({ error: "Failed to delete location" });
+        console.error('Error deleting location: ', err);
+        res.status(500).json({ error: "failed to delete location" });
     }
 });
 

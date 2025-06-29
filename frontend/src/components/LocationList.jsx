@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import { getLocations, deleteLocation } from "../services/locationService";
 
-function LocationList({ locations, setMapCenter, onLocationUpdate }) {
+function LocationList({ locations, setMapCenter, onLocationUpdate, username }) {
   const [isDeleting, setIsDeleting] = useState(null);
 
   const handleDelete = async (id) => {
     setIsDeleting(id);
     try {
-      await deleteLocation(id);
+      await deleteLocation(id, username);
       // Trigger refresh of locations
       if (onLocationUpdate) {
-        const updatedLocations = await getLocations();
+        const updatedLocations = await getLocations(username);
         onLocationUpdate(updatedLocations);
       }
     } catch (error) {
