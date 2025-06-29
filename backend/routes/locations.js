@@ -96,12 +96,12 @@ router.delete('/:id', async (req, res) => {
     const id = parseInt(req.params.id, 10);
 
     if (!username) {
-        return req.status(400).json({ error: "username is required" });
+        return res.status(400).json({ error: "username is required" });
     }
 
     try {
         const locations = await readUserLocations(username);
-        const index = location.findIndex(loc => loc.id === id);
+        const index = locations.findIndex(loc => loc.id === id);
 
         if (index === -1) {
             return res.status(404).json({ error: 'location not found' });
