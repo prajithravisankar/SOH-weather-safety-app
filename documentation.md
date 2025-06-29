@@ -216,7 +216,25 @@ Date: June 29, 2025, 8:20 PM IST, Performed By: Prajith Ravisankar
 - Integrated logout button and welcome message in the app header.
 - Passed username to all location-related components and API calls for user-specific data.
 - Verified that authentication flow works end-to-end and user experience is seamless.
+---
+Date: June 29, 2025, 9:11 PM IST Performed By: Prajith Ravisankar
+---
+### Phase 8: User Authentication & Data Isolation
+- Implemented user registration and login with `/api/auth` endpoints and `mock-data/users.json`.
+- Each user now has their own `{username}-locations.json` file for location storage.
+- Backend (`locations.js`) requires username for all location endpoints and isolates data per user.
+- Frontend services/components updated to always pass username for location API calls.
+- **Critical bug fix:** Removed a conflicting useEffect in `MapView.jsx` that was overwriting locations with an empty array after login. Now, locations display immediately after login for each user.
+- Tested with users `john` and `prajith`—locations render instantly after login.
+- All user-specific data flows confirmed working as of 9:11 PM IST.
 
+**Tested users:**
+- `john` (shows 4 locations after login)
+- `prajith` (shows 1 location after login)
+
+**Status:**
+- All user-specific location and authentication flows are working as intended as of 9:11 PM IST, June 29, 2025.
+---
 
 
 

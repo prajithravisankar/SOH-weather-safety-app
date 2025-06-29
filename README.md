@@ -238,53 +238,20 @@ weather-safety-app/
 
 ---
 
-## Phase 8: User Authentication & Data Isolation
+## Phase 8: User Authentication & Data Isolation (Completed June 29, 2025, 9:11 PM IST)
 
-**Goal**: Implement user login/signup system with user-specific location data.
+**Goal:** Ensure each user sees only their own locations, and locations display immediately after login.
 
-### Main Todo 8.1: Backend User Authentication
+- [x] Implemented user authentication (register/login) with `/api/auth` endpoints and `mock-data/users.json`.
+- [x] User-specific location storage: each user has their own `{username}-locations.json` file.
+- [x] Updated backend (`locations.js`) to require username for all endpoints and isolate data.
+- [x] Updated frontend services and components to pass username for all location API calls.
+- [x] Fixed bug where locations did not display immediately after login (removed conflicting useEffect in `MapView.jsx`).
+- [x] Thoroughly debugged state flow and confirmed locations now render instantly after login for each user.
 
-- [x]  Sub-todo 8.1.1: Create user storage system
-    - [x]  Create `mock-data/users.json` file for storing user accounts
-    - [x]  Structure: `[{username: "user1", password: "pass123", createdAt: "date"}]`
-- [x]  Sub-todo 8.1.2: Update `/api/auth` routes
-    - [x]  Replace mock login with real username/password validation
-    - [x]  Add `POST /api/auth/register` for new user registration
-    - [x]  Add `POST /api/auth/login` for user authentication
-    - [x]  Return user session token or username on successful login
+**Tested users:**
+- `john` (shows 4 locations after login)
+- `prajith` (shows 1 location after login)
 
-### Main Todo 8.2: User-Specific Location Storage
-
-- [x]  Sub-todo 8.2.1: Update location file structure
-    - [x]  Deleted existing `mock-data/members.json`
-    - [x]  Created user-specific files: `mock-data/{username}-locations.json`
-    - [x]  Each file contains locations array for that specific user
-- [x]  Sub-todo 8.2.2: Modify `/api/locations` routes
-    - [x]  All location endpoints require username
-    - [x]  Read/write from user-specific location files
-    - [x]  Users can only access their own locations
-    - [x]  Helper functions manage file operations and auto-create files as needed
-
-### Main Todo 8.3: Frontend Authentication UI
-
-- [x]  Sub-todo 8.3.1: Create authentication components
-    - [x]  Created `LoginForm.jsx` for user login
-    - [x]  Created `SignupForm.jsx` for user registration
-    - [x]  Created `AuthPage.jsx` to toggle between login and signup
-- [x]  Sub-todo 8.3.2: Add authentication flow to App
-    - [x]  Added login state management and persistent sessions in `App.jsx`
-    - [x]  Show `AuthPage` if not logged in, show main app if logged in
-    - [x]  Added logout functionality with button in header
-    - [x]  Passed username to all location-related components and API calls
-
-### Main Todo 8.4: Session Management
-
-- [ ]  Sub-todo 8.4.1: Implement simple session storage
-    - [ ]  Use localStorage to persist login between browser sessions
-    - [ ]  Add authentication service functions in `authService.js`
-- [ ]  Sub-todo 8.4.2: Update location services
-    - [ ]  Modify `locationService.js` to include user authentication
-    - [ ]  Send username/token with all location API requests
-    - [ ]  Handle authentication errors and redirect to login
-
----
+**Status:**
+- All user-specific location and authentication flows are working as intended as of 9:11 PM IST, June 29, 2025.

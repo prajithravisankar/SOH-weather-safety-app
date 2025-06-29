@@ -16,26 +16,17 @@ function App() {
   const [user, setUser] = useState(null); // Current logged-in user
   const [isLoading, setIsLoading] = useState(true);
 
-  // Check for existing login on app start
+  // Load locations on initial app load if user is already logged in
   useEffect(() => {
-    const loadApp = async () => {
+    const checkForSavedUser = async () => {
       const savedUser = localStorage.getItem('weatherapp_user');
       if (savedUser) {
         setUser(savedUser);
-        // Load locations immediately if user is already logged in
-        try {
-          const locationData = await getLocations(savedUser);
-          console.log('App startup: Setting locations for saved user:', locationData);
-          setLocations(locationData);
-        } catch (error) {
-          console.error("Error loading locations on app startup:", error);
-          setLocations([]);
-        }
+        await loadLocations(savedUser);
       }
       setIsLoading(false);
     };
-    
-    loadApp();
+    checkForSavedUser();
   }, []);
 
   // Clear locations when user logs out (keep useEffect for logout only)
@@ -47,35 +38,26 @@ function App() {
 
   // Debug: watch locations state changes
   useEffect(() => {
-    console.log('App: locations state updated:', locations.length, 'locations');
+    console.log('App: locations state updated:', locations);
   }, [locations]);
 
-  const loadLocations = async () => {
-    if (!user) return;
-    
+  const loadLocations = async (currentUser) => {
+    const userToLoad = currentUser || user;
+    if (!userToLoad) return;
+
     try {
-      const locationData = await getLocations(user);
-      console.log('loadLocations: Received data for', user, ':', locationData);
+      const locationData = await getLocations(userToLoad);
       setLocations(locationData);
     } catch (error) {
       console.error("Error loading locations:", error);
-      setLocations([]); // Ensure we set empty array on error
+      setLocations([]);
     }
   };
 
   const handleLogin = async (username) => {
     setUser(username);
     localStorage.setItem('weatherapp_user', username);
-    
-    // Force a immediate location load after login
-    try {
-      const locationData = await getLocations(username);
-      console.log('handleLogin: Setting locations immediately:', locationData);
-      setLocations(locationData);
-    } catch (error) {
-      console.error("Error loading locations in handleLogin:", error);
-      setLocations([]);
-    }
+    await loadLocations(username); // Pass user directly
   };
 
   const handleLogout = () => {

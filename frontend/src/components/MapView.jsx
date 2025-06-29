@@ -2,7 +2,6 @@ import { MapContainer, TileLayer, Marker, Popup, ZoomControl, useMap, Tooltip } 
 import 'leaflet/dist/leaflet.css';
 import { useEffect, useState } from "react";
 import { getDisasterData } from "../services/disasterService.js";
-import { getLocations } from "../services/locationService.js";
 import L from 'leaflet';
 
 // Component to handle map center changes
@@ -29,16 +28,8 @@ function MapView({ mapCenter, locations, onLocationUpdate }) {
         });
     }, []);
 
-    // Fetch locations when component mounts or when onLocationUpdate changes
-    useEffect(() => {
-        if (onLocationUpdate) {
-            getLocations().then(data => {
-                onLocationUpdate(data);
-            }).catch(error => {
-                console.error("Error fetching locations:", error);
-            });
-        }
-    }, [onLocationUpdate]);
+    // Note: Location fetching is now handled entirely by the App component
+    // The MapView component only displays the locations passed as props
 
     // Create custom icon for user locations (green for safety/home)
     const userLocationIcon = new L.Icon({
