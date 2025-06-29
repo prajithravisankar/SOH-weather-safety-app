@@ -115,7 +115,7 @@ function App() {
     <div className='min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900'>
       {/* Header with user info and logout */}
       <div className="bg-white/5 backdrop-blur-lg border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="w-full px-6 py-4">
           <div className="flex justify-between items-center">
             <div>
               <h1 className='text-4xl font-bold bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent'>
@@ -140,17 +140,17 @@ function App() {
       </div>
       
       {/* Main Content Area */}
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="w-full px-6 py-8">
         {/* Map and Location List Side by Side */}
-        <div className='flex flex-col xl:flex-row gap-8 mb-12'>
+        <div className='flex flex-col xl:flex-row gap-8 mb-12 h-full'>
           {/* Map Container - Larger and more prominent */}
-          <div className='flex-1'>
-            <div className="bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 overflow-hidden">
+          <div className='flex-1 min-h-[600px]'>
+            <div className="bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 overflow-hidden h-full">
               <div className="p-6 border-b border-white/10">
                 <h2 className="text-2xl font-semibold text-white mb-2">Live Safety Map</h2>
                 <p className="text-gray-400">Real-time disaster tracking and your saved locations</p>
               </div>
-              <div className="h-[600px]">
+              <div className="h-[calc(100%-120px)] min-h-[500px]">
                 <MapView 
                   mapCenter={mapCenter}
                   locations={locations}
@@ -166,7 +166,7 @@ function App() {
           </div>
           
           {/* Location List Sidebar - More spacious */}
-          <div className='w-full xl:w-96'>
+          <div className='w-full xl:w-80 2xl:w-96'>
             <div className='bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 p-6'>
               <div className="mb-6">
                 <h2 className='text-2xl font-semibold text-white mb-2'>Your Locations</h2>
@@ -209,7 +209,7 @@ function App() {
         )}
         
         {searchResult && (
-          <div className="mt-8 mb-8 max-w-4xl mx-auto">
+          <div className="mt-8 mb-8 w-full">
             {searchResult.title || searchResult.name ? (
               <div className="bg-gradient-to-r from-green-500/20 to-blue-500/20 backdrop-blur-lg rounded-2xl border border-green-500/30 p-6">
                 <div className="flex items-center justify-between">
