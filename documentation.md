@@ -129,5 +129,22 @@ Date: June 29, 2025 12:30 AM IST, Performed By: Prajith Ravisankar
 
 Date: June 29, 2025 1:31 PM IST, Performed By: Prajith Ravisankar
 ---
+### Sub-todo 4.1.1: Create LocationForm component and persist locations in file
+- Implemented LocationForm in frontend with fields for name, latitude, longitude, and submit button.
+- Backend `/api/locations` now reads/writes to `mock-data/members.json` for all GET/POST/DELETE.
+- Verified with Postman and frontend: new locations are saved to file and returned by API.
+- Removed in-memory array from backend route; all location data is now file-based for MVP persistence.
+
+
+Date: June 29, 2025, 3:40 PM IST, Performed By: Prajith Ravisankar
+---
+### Sub-todo 4.1.2: Validate LocationForm inputs and improve UX
+- Added validation to LocationForm: checks for required fields, latitude/longitude ranges.
+- Validation errors are shown below the button and disappear after 5 seconds.
+- Form is styled horizontally and matches the Vite dark theme (bg-[#242424], indigo button, white text).
+- Confirmed robust error handling and user feedback in the UI.
+
+Date: June 29, 2025, 4:38 PM IST, Performed By: Prajith Ravisankar
+
 
 

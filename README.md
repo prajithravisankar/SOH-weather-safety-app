@@ -151,11 +151,16 @@ weather-safety-app/
 
 ### Main Todo 4.1: Location Form
 
-- [ ]  Sub-todo 4.1.1: Create `LocationForm` component
-    - [ ]  Fields: `name`, `latitude`, `longitude`
-    - [ ]  Submit button → POST to `/api/locations`
-- [ ]  Sub-todo 4.1.2: Validate form inputs
-    - [ ]  Check for non-empty fields and valid numbers
+- [x]  Sub-todo 4.1.1: Create `LocationForm` component
+    - [x]  Fields: `name`, `latitude`, `longitude`
+    - [x]  Submit button → POST to `/api/locations`
+    - [x]  Locations are now persisted in `mock-data/members.json` via the backend route.
+    - [x]  Tested with Postman and frontend; confirmed new locations are saved and returned.
+    - [x]  Backend logic updated to read/write from file, not in-memory array. 
+- [x]  Sub-todo 4.1.2: Validate form inputs
+    - [x]  Check for non-empty fields and valid numbers
+    - [x]  Validation errors are shown below the button and disappear after 5 seconds.
+    - [x]  Form is styled horizontally and matches the Vite dark theme.
 
 ### Main Todo 4.2: Location Display
 
@@ -164,7 +169,7 @@ weather-safety-app/
 - [ ]  Sub-todo 4.2.2: Render location list
     - [ ]  Display in sidebar/card layout
     - [ ]  Clicking location pans map to coordinates
-
+    
 ---
 
 ## Phase 5: API Resilience & Fallbacks (Hours 17–18)
