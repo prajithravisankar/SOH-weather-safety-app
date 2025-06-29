@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, Popup, ZoomControl, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, ZoomControl, useMap, Tooltip } from "react-leaflet";
 import 'leaflet/dist/leaflet.css';
 import { useEffect, useState } from "react";
 import { getDisasterData } from "../services/disasterService.js";
@@ -86,11 +86,11 @@ function MapView({ mapCenter, locations, onLocationUpdate }) {
                         position={[location.lat, location.lon]}
                         icon={userLocationIcon}
                     >
-                        <Popup>
+                        <Tooltip permanent={false} direction="top" offset={[0, -20]}>
                             <strong>🏠 {location.name}</strong><br />
                             <em>Your saved location</em><br />
                             Coordinates: {location.lat.toFixed(4)}, {location.lon.toFixed(4)}
-                        </Popup>
+                        </Tooltip>
                     </Marker>
                 ))}
 
@@ -104,12 +104,12 @@ function MapView({ mapCenter, locations, onLocationUpdate }) {
                         position={[g.coordinates[1], g.coordinates[0]]}
                         icon={disasterIcon}
                     >
-                        <Popup>
-                        <strong>🚨 {event.title}</strong><br />
-                        {event.description}<br />
-                        <em>Category: {event.categories[0]?.title}</em><br />
-                        <em>Date: {new Date(g.date).toLocaleString()}</em>
-                        </Popup>
+                        <Tooltip permanent={false} direction="top" offset={[0, -20]}>
+                            <strong>🚨 {event.title}</strong><br />
+                            {event.description}<br />
+                            <em>Category: {event.categories[0]?.title}</em><br />
+                            <em>Date: {new Date(g.date).toLocaleString()}</em>
+                        </Tooltip>
                     </Marker>
                     ))
                 )}
