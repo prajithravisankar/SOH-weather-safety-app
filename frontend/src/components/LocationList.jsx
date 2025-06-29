@@ -39,11 +39,20 @@ function LocationList({ locations, setMapCenter, onLocationUpdate, username }) {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4 flex-1">
                   <div className="w-12 h-12 bg-emerald-500/20 rounded-xl flex items-center justify-center">
-                    <span className="text-2xl">🏠</span>
+                    <span className="text-2xl">{loc.emoji || '🏠'}</span>
                   </div>
                   <div className="flex-1">
                     <div className="font-semibold text-white text-lg mb-1">{loc.name}</div>
-                    <div className="text-gray-400 text-sm">
+                    {loc.memberName && (
+                      <div className="text-blue-400 text-sm font-medium mb-1">👤 {loc.memberName}</div>
+                    )}
+                    {loc.address && (
+                      <div className="text-gray-300 text-sm mb-1 line-clamp-1">📍 {loc.address}</div>
+                    )}
+                    {loc.phone && (
+                      <div className="text-green-400 text-sm mb-1">📞 {loc.phone}</div>
+                    )}
+                    <div className="text-gray-400 text-xs">
                       {loc.lat.toFixed(4)}, {loc.lon.toFixed(4)}
                     </div>
                   </div>

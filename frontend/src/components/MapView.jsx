@@ -170,9 +170,17 @@ function MapView({ mapCenter, locations, onLocationUpdate, onMarkerClick, select
                         }}
                     >
                         <Tooltip permanent={false} direction="top" offset={[0, -20]}>
-                            <strong>🏠 {location.name}</strong><br />
-                            <em>Your saved location</em><br />
-                            Coordinates: {location.lat.toFixed(4)}, {location.lon.toFixed(4)}
+                            <strong>{location.emoji || '🏠'} {location.name}</strong><br />
+                            {location.memberName && (
+                                <>👤 <em>{location.memberName}</em><br /></>
+                            )}
+                            {location.address && (
+                                <>📍 <em>{location.address}</em><br /></>
+                            )}
+                            {location.phone && (
+                                <>📞 <em>{location.phone}</em><br /></>
+                            )}
+                            <em>Coordinates: {location.lat.toFixed(4)}, {location.lon.toFixed(4)}</em>
                         </Tooltip>
                     </Marker>
                 ))}

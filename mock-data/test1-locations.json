@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "brother's home",
+    "lat": 48.4431575,
+    "lon": -89.2131428,
+    "memberName": "brother",
+    "placeType": "home",
+    "address": "pammal, chennai",
+    "phone": "9789223801",
+    "emoji": "🏠",
+    "createdAt": "2025-06-29T17:12:38.761Z"
+  }
+]

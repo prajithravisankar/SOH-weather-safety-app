@@ -46,10 +46,22 @@ router.get('/', async (req, res) => {
 
 // POST /api/locations - add a new location for user
 router.post('/', async (req, res) => {
-    const { name, lat, lon, username } = req.body;
+    const { 
+        name, 
+        lat, 
+        lon, 
+        username, 
+        memberName, 
+        placeType, 
+        address, 
+        phone, 
+        emoji 
+    } = req.body;
 
-    if (!name || !lat || !lon || !username) {
-        return res.status(400).json({ error: 'Name, lat, lon, and username are required' });
+    if (!name || !lat || !lon || !username || !memberName || !placeType) {
+        return res.status(400).json({ 
+            error: 'Name, lat, lon, username, member name, and place type are required' 
+        });
     }
 
     try {
@@ -59,7 +71,13 @@ router.post('/', async (req, res) => {
             id: locations.length > 0 ? Math.max(...locations.map(l => l.id)) + 1 : 1, 
             name, 
             lat: parseFloat(lat), 
-            lon: parseFloat(lon)
+            lon: parseFloat(lon),
+            memberName,
+            placeType,
+            address: address || '',
+            phone: phone || '',
+            emoji: emoji || '📍',
+            createdAt: new Date().toISOString()
         };
 
         locations.push(newLocation);

@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+/* Custom utilities for line clamping */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+}
+
+/* Address suggestions z-index fix */
+.address-suggestions {
+  z-index: 9999;
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

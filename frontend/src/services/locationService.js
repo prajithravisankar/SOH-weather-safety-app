@@ -1,11 +1,26 @@
 import axios from "axios";
 
-export async function addLocation({ name, latitude, longitude, username }) {
+export async function addLocation({ 
+    name, 
+    latitude, 
+    longitude, 
+    username, 
+    memberName, 
+    placeType, 
+    address, 
+    phone, 
+    emoji 
+}) {
     const payload = {
         name, 
         lat: parseFloat(latitude), 
         lon: parseFloat(longitude),
-        username
+        username,
+        memberName,
+        placeType,
+        address,
+        phone,
+        emoji
     };
     const response = await axios.post("/api/locations", payload);
     return response.data;
