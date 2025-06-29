@@ -153,6 +153,30 @@ Date: June 29, 2025, 4:38 PM IST, Performed By: Prajith Ravisankar
 - Verified that adding a new location updates both the map and the list in real time.
 
 Date: June 29, 2025, 10:30 PM IST, Performed By: Prajith Ravisankar
+---
+### Sub-todo 4.2.1: Fetch and display locations on map and list
+- Implemented `getLocations()` in locationService.js to fetch locations from backend.
+- Used `useEffect` in both LocationList.jsx and MapView.jsx to load locations on mount.
+- Locations now appear as custom markers on the map and as a list in the sidebar.
+- Verified that adding a new location updates both the map and the list in real time.
+
+Date: June 29, 2025, 11:45 PM IST, Performed By: Prajith Ravisankar
+---
+### Sub-todo 4.2.2: Complete location list with sidebar layout and interactive features
+- Implemented LocationList component with sidebar layout, scrollable area (max-h-80) for long lists.
+- Added click-to-pan functionality: clicking a location in the list centers the map on those coordinates.
+- Integrated delete functionality with trash icon buttons and proper error handling.
+- Added `deleteLocation()` function to locationService.js for DELETE requests to backend.
+
+Date: June 29, 2025, 11:45 PM IST, Performed By: Prajith Ravisankar
+---
+### UI/UX Layout Improvements and Marker Differentiation
+- Restructured App.jsx layout: map and location list side-by-side, form moved below map.
+- Improved responsive design with flexbox: desktop shows sidebar, mobile stacks vertically.
+- Implemented custom marker colors: green markers for user locations, red markers for disaster events.
+- Added ChangeView component to MapView for smooth map panning when clicking locations.
+- Enhanced LocationForm: horizontal layout on desktop, all inputs + button in one row.
+- Added proper visual hierarchy with dark theme styling and better spacing.
 
 
 

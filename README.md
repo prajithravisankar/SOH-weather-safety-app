@@ -164,14 +164,16 @@ weather-safety-app/
 
 ### Main Todo 4.2: Location Display
 
-- [ ]  Sub-todo 4.2.1: Fetch locations from backend
-    - [ ]  Used `getLocations()` in `locationService.js` to fetch locations from `/api/locations`.
-    - [ ]  Used `useEffect` in `LocationList.jsx` and `MapView.jsx` to load locations on mount.
-    - [ ]  Locations are now displayed as markers on the map with a custom icon, and as a list in the sidebar.
-    - [ ]  Verified new locations appear on the map and in the list after adding.
-- [ ]  Sub-todo 4.2.2: Render location list
-    - [ ]  Display in sidebar/card layout
-    - [ ]  Clicking location pans map to coordinates
+- [x]  Sub-todo 4.2.1: Fetch locations from backend
+    - [x]  Used `getLocations()` in `locationService.js` to fetch locations from `/api/locations`.
+    - [x]  Used `useEffect` in `LocationList.jsx` and `MapView.jsx` to load locations on mount.
+    - [x]  Locations are now displayed as green markers on the map with custom icons, differentiated from red disaster markers.
+    - [x]  Verified new locations appear on the map and in the list after adding.
+- [x]  Sub-todo 4.2.2: Render location list
+    - [x]  Display in sidebar/card layout with scrollable area for long lists
+    - [x]  Clicking location pans map to coordinates with zoom
+    - [x]  Added delete functionality with trash icon buttons
+    - [x]  Improved responsive layout: map + sidebar on desktop, stacked on mobile
     
 ---
 
