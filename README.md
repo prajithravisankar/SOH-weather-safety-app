@@ -1,5 +1,7 @@
 # Weather Radar + Friend Safety App
 
+> **Note:** For MVP and rapid prototyping, we are using mock data (see `mock-data/disasters.json` and similar files) for disaster events and locations wherever necessary. This allows us to build and test the UI and core flows quickly. Real API integration will be added after the MVP is functional and tested.
+
 **MVP Breakdown**
 
 ---
@@ -134,8 +136,7 @@ weather-safety-app/
 
 ### Main Todo 3.3: Weather Overlay
 
-- [ ]  Sub-todo 3.3.1: Fetch disaster data
-    - [ ]  Create `services/disasterService.js` with `getDisasterData()` using `axios.get('/api/disasters')`
+- [x]  Sub-todo 3.3.1: Fetch disaster data from backend using getDisasterData() in disasterService.js. Data is loaded into MapView state from /api/disasters (mock data for MVP). [2025-06-29 IST]
 - [ ]  Sub-todo 3.3.2: Display earthquake markers
     - [ ]  Parse USGS earthquake data (example: `https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson`)
     - [ ]  Add `Marker` components for each earthquake

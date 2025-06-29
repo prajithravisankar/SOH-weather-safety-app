@@ -1,16 +1,130 @@
 {
-    "disasters": [
-        {
-            "type": "earthquake", 
-            "location": "San Francisco", 
-            "magnitude": 4.5, 
-            "time": "2025-06-29T02:00:00Z"
-        }, 
-        {
-            "type": "storm", 
-            "location": "Los Angeles", 
-            "severity": "moderate", 
-            "time": "2025-06-29T01:00:00Z" 
-        }
-    ]
+  "events": [
+    {
+      "id": "EONET_10001",
+      "title": "California Drought",
+      "description": "Prolonged drought affecting agriculture in California.",
+      "categories": [{ "id": "drought", "title": "Drought" }],
+      "geometry": [
+        { "date": "2025-06-01T00:00:00Z", "type": "Point", "coordinates": [-119.4179, 36.7783] }
+      ]
+    },
+    {
+      "id": "EONET_10002",
+      "title": "Dust Storm in Arizona",
+      "description": "Major dust storm impacting Phoenix area.",
+      "categories": [{ "id": "dustHaze", "title": "Dust and Haze" }],
+      "geometry": [
+        { "date": "2025-06-15T00:00:00Z", "type": "Point", "coordinates": [-112.0740, 33.4484] }
+      ]
+    },
+    {
+      "id": "EONET_10003",
+      "title": "San Francisco Earthquake",
+      "description": "Magnitude 4.5 earthquake near San Francisco.",
+      "categories": [{ "id": "earthquakes", "title": "Earthquakes" }],
+      "geometry": [
+        { "date": "2025-06-29T02:00:00Z", "type": "Point", "coordinates": [-122.4194, 37.7749] }
+      ]
+    },
+    {
+      "id": "EONET_10004",
+      "title": "Flood in Jakarta",
+      "description": "Severe flooding in Jakarta, Indonesia.",
+      "categories": [{ "id": "floods", "title": "Floods" }],
+      "geometry": [
+        { "date": "2025-06-20T00:00:00Z", "type": "Point", "coordinates": [106.8456, -6.2088] }
+      ]
+    },
+    {
+      "id": "EONET_10005",
+      "title": "Landslide in Nepal",
+      "description": "Landslide triggered by heavy rains in Nepal.",
+      "categories": [{ "id": "landslides", "title": "Landslides" }],
+      "geometry": [
+        { "date": "2025-06-18T00:00:00Z", "type": "Point", "coordinates": [84.1240, 28.3949] }
+      ]
+    },
+    {
+      "id": "EONET_10006",
+      "title": "Industrial Fire in Houston",
+      "description": "Large manmade fire at an industrial site in Houston.",
+      "categories": [{ "id": "manmade", "title": "Manmade" }],
+      "geometry": [
+        { "date": "2025-06-10T00:00:00Z", "type": "Point", "coordinates": [-95.3698, 29.7604] }
+      ]
+    },
+    {
+      "id": "EONET_10007",
+      "title": "Sea Ice in Arctic Ocean",
+      "description": "Significant sea ice observed in the Arctic region.",
+      "categories": [{ "id": "seaLakeIce", "title": "Sea and Lake Ice" }],
+      "geometry": [
+        { "date": "2025-06-05T00:00:00Z", "type": "Point", "coordinates": [0.0, 85.0] }
+      ]
+    },
+    {
+      "id": "EONET_10008",
+      "title": "Hurricane in Florida",
+      "description": "Severe storm (hurricane) approaching Florida coast.",
+      "categories": [{ "id": "severeStorms", "title": "Severe Storms" }],
+      "geometry": [
+        { "date": "2025-06-25T00:00:00Z", "type": "Point", "coordinates": [-81.5158, 27.6648] }
+      ]
+    },
+    {
+      "id": "EONET_10009",
+      "title": "Snowstorm in Moscow",
+      "description": "Heavy snowfall causing disruptions in Moscow.",
+      "categories": [{ "id": "snow", "title": "Snow" }],
+      "geometry": [
+        { "date": "2025-06-12T00:00:00Z", "type": "Point", "coordinates": [37.6173, 55.7558] }
+      ]
+    },
+    {
+      "id": "EONET_10010",
+      "title": "Heatwave in Paris",
+      "description": "Extreme heat event in Paris, France.",
+      "categories": [{ "id": "tempExtremes", "title": "Temperature Extremes" }],
+      "geometry": [
+        { "date": "2025-06-22T00:00:00Z", "type": "Point", "coordinates": [2.3522, 48.8566] }
+      ]
+    },
+    {
+      "id": "EONET_10011",
+      "title": "Volcano Eruption in Iceland",
+      "description": "Volcanic eruption detected in Iceland.",
+      "categories": [{ "id": "volcanoes", "title": "Volcanoes" }],
+      "geometry": [
+        { "date": "2025-06-14T00:00:00Z", "type": "Point", "coordinates": [-19.0208, 64.9631] }
+      ]
+    },
+    {
+      "id": "EONET_10012",
+      "title": "Algae Bloom in Lake Erie",
+      "description": "Water color change due to algae bloom in Lake Erie.",
+      "categories": [{ "id": "waterColor", "title": "Water Color" }],
+      "geometry": [
+        { "date": "2025-06-08T00:00:00Z", "type": "Point", "coordinates": [-82.4830, 41.7000] }
+      ]
+    },
+    {
+      "id": "EONET_10013",
+      "title": "Wildfire in Australia",
+      "description": "Large wildfire spreading in New South Wales, Australia.",
+      "categories": [{ "id": "wildfires", "title": "Wildfires" }],
+      "geometry": [
+        { "date": "2025-06-28T00:00:00Z", "type": "Point", "coordinates": [149.0124, -33.8688] }
+      ]
+    },
+    {
+      "id": "EONET_10014",
+      "title": "Wildfire in California",
+      "description": "Wildfire burning in northern California forests.",
+      "categories": [{ "id": "wildfires", "title": "Wildfires" }],
+      "geometry": [
+        { "date": "2025-06-27T00:00:00Z", "type": "Point", "coordinates": [-121.4944, 38.5816] }
+      ]
+    }
+  ]
 }

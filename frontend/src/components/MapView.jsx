@@ -1,9 +1,21 @@
 import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from "react-leaflet";
 import 'leaflet/dist/leaflet.css';
+import { useEffect, useState } from "react";
+import { getDisasterData } from "../services/disasterService";
+import { data } from "autoprefixer";
 
 function MapView() {
 
     const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
+
+    const [disasterData, setDisasterData] = useState(null);
+
+    useEffect(() => {
+        getDisasterData().then(data => {
+            setDisasterData(data);
+            console.log("Fetched disaster data: ", data);
+        });
+    }, []);
 
     return (
         <div className="h-96 w-full rounded-lg overflow-hidden">

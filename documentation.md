@@ -104,4 +104,12 @@ Date: June 29, 2025, 3:57 AM IST Performed By: Prajith Ravisankar
 
 Date: June 29, 4:38 PM 2025, Performed By: Prajith Ravisankar
 ---
+### Sub-todo 3.3.1: Fetch disaster data
+- Implemented getDisasterData() in frontend/src/services/disasterService.js to fetch from /api/disasters.
+- MapView.jsx uses useEffect/useState to load and log disaster data on mount.
+- Backend route /api/disasters returns mock data from mock-data/disasters.json for MVP.
+- Data fetch verified in browser console.
+
+Date: June 29, 2025 10:15 AM IST, Performed By: Prajith Ravisankar
+---
 
