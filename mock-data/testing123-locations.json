@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Prajith's work",
+    "lat": 64.4459613,
+    "lon": -149.680909,
+    "memberName": "Prajith",
+    "placeType": "work",
+    "address": "Alaska, United States",
+    "phone": "+1 513 227 3452",
+    "emoji": "🏢",
+    "createdAt": "2025-06-29T20:15:17.319Z"
+  },
+  {
+    "id": 2,
+    "name": "testing1's home",
+    "lat": 11.3033889,
+    "lon": 78.118604,
+    "memberName": "testing1",
+    "placeType": "home",
+    "address": "Namakkal, Tamil Nadu, India",
+    "phone": "9789223801",
+    "emoji": "🏠",
+    "createdAt": "2025-06-29T20:18:23.978Z"
+  }
+]
