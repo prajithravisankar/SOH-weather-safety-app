@@ -1,6 +1,11 @@
 # SafeGuard 🛡️
 ### *Real-time disaster monitoring and location safety tracker*
 
+## 🌐 **Live Demo**
+🚀 **Try SafeGuard Now:** [https://soh-weather-safety-app.vercel.app/](https://soh-weather-safety-app.vercel.app/)
+
+📂 **GitHub Repository:** [https://github.com/prajithravisankar/SOH-weather-safety-app](https://github.com/prajithravisankar/SOH-weather-safety-app)
+
 > **"Protecting people and places that matter most through intelligent disaster tracking and location management"**
 
 ---
