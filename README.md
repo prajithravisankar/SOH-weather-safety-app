@@ -88,15 +88,6 @@ SafeGuard leverages cutting-edge web technologies to deliver a seamless, real-ti
 - **Geocoding**: Address-to-coordinate conversion with autocomplete suggestions
 - **Responsive Design**: Mobile-first approach with desktop enhancement
 
-## 🎪 **Perfect for Hackathons**
-
-SafeGuard demonstrates:
-- ✅ **Real-world impact** - Addresses genuine safety concerns
-- ✅ **Technical complexity** - Multiple API integrations and real-time data processing  
-- ✅ **User experience** - Intuitive interface designed for emergency scenarios
-- ✅ **Innovation** - Novel combination of disaster monitoring and personal location management
-- ✅ **Scalability** - Architecture ready for additional features and user growth
-
 ---
 
 ## 📸 **Screenshots & Demo**
