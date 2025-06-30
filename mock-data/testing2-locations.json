@@ -1,0 +1,14 @@
+[
+  {
+    "id": 2,
+    "name": "brother's university",
+    "lat": 46.601455,
+    "lon": -118.740234,
+    "memberName": "Srijan",
+    "placeType": "university",
+    "address": "washington",
+    "phone": "9789223800",
+    "emoji": "🏛️",
+    "createdAt": "2025-06-29T20:55:26.401Z"
+  }
+]
