@@ -418,7 +418,7 @@ SafeGuard's current MVP demonstrates core functionality, but we have ambitious p
 
 ## 🎖️ **Our Commitment**
 
-SafeGuard is more than just a hackathon project—it's our commitment to **building a safer, more connected world**. We believe that technology should serve humanity's most fundamental need: **safety and security for ourselves and those we love**.
+SafeGuard is more than just a project—it's our commitment to **building a safer, more connected world**. We believe that technology should serve humanity's most fundamental need: **safety and security for ourselves and those we love**.
 
 Every feature we build, every line of code we write, and every design decision we make is guided by this simple principle: **When disaster strikes, every second counts, and every person matters.**
 
