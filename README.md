@@ -1,4 +1,4 @@
-# SafeGuard 🛡️
+# SafeGuard 🛡️ (UPDATE: WON 3RD PLACE IN SUMMER OPEN HACKATHON 2025)
 ### *Real-time disaster monitoring and location safety tracker*
 
 📂 **GitHub Repository:** [https://github.com/prajithravisankar/SOH-weather-safety-app](https://github.com/prajithravisankar/SOH-weather-safety-app)
